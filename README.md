@@ -1,4 +1,4 @@
-**Python3 utility for creating and reading qrcode in the terminal...Creation is done by the module qrcode and scanning by python-opencv**
+**Python3 utility for creating and reading qrcode in the terminal**<br>
 
 **Usage** <br> 
 => pip install -r requirements.txt <br> 
