@@ -1,3 +1,3 @@
 qrcode
 opencv-python
-
+colorama

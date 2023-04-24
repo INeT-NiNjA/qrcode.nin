@@ -17,47 +17,49 @@ def read_qr(filename):
     import cv2
     reader = cv2.QRCodeDetector()
     try:
+        from colorama import Fore
         value,a,b = reader.detectAndDecode(cv2.imread(filename))
         print()
-        print(f" Encoded data is: {value}")
+        print(Fore.LIGHTGREEN_EX + f" Encoded data is: {value}")
     except cv2.error:
         print()
-        print(" The file-path you entered doesnt exist..Try checking the file or try entering the full path")
+        print(Fore.RED + " The file-path you entered doesnt exist..Try checking the file or try entering the full path")
 
 def main():
+    from colorama import Fore
     clearterminal()
     print()
-    print('     |qrcode.nin|•|INeT-NiNjA|')
+    print(Fore.WHITE + '     |qrcode.nin|•|INeT-NiNjA|')
     print()
     loop = True
     while loop==True:
         try:
             print()
-            print(' What do you want to do?')
-            print(' 1) Generate QR code')
-            print(' 2) Read QR code')
+            print(Fore.CYAN + ' What do you want to do?')
+            print(Fore.CYAN + ' 1) Generate QR code')
+            print(Fore.CYAN + ' 2) Read QR code')
             print()
-            ch = int(input(' Enter number of choice => '))
+            ch = int(input(Fore.BLUE + ' Enter number of choice => '))
             print()
             if ch == 1:
                 loop = False
-                data = input(' Enter data to be encoded => ')
-                filename = input(' Enter name under which the image will be saved => ')
+                data = input(Fore.CYAN + ' Enter data to be encoded => ')
+                filename = input(Fore.CYAN + ' Enter name under which the image will be saved => ')
                 file_name = filename + '.png'
                 generate_qr(data,file_name)
             elif ch == 2:
                 loop = False
-                filename = input(' Enter the complete name/path of the qrcode image file => ')
+                filename = input(Fore.BLUE + ' Enter the complete name/path of the qrcode image file => ')
                 read_qr(filename)
             else:
-                print(' Please select a valid option')
+                print(Fore.RED + ' Please select a valid option')
         except KeyboardInterrupt:
             print()
-            print(' Exiting program')
+            print(Fore.LIGHTRED_EX + ' Exiting program')
             quit()
         except ValueError:
             print()
-            print(' Please select a valid option')
+            print(Fore.RED + ' Please select a valid option')
 
 
 
@@ -65,6 +67,7 @@ def main():
 try:
     import cv2
     import qrcode
+    import colorama
     
 except ImportError:
     print(' Please install the necessary dependencies before running the program')
